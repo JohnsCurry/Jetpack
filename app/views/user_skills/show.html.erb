@@ -4,4 +4,7 @@
 <%= @user.profile.html_safe %>
 <% else %>
 <h1><%= @user.username %> Has not set up a profile yet</h1>
+  <% if current_user.status == 'career/education' %>
+    set it up here: <%= link_to "setup profile", edit_user_path(current_user) %>
+  <% end %>
 <% end %>

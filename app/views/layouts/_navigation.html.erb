@@ -15,7 +15,9 @@
     <div class="collapse navbar-collapse" id="div-navbar-thing">
       <ul class="nav navbar-nav">
         <% if logged_in? && current_user.status == 'career/education' %>
-          <li><%= link_to 'Add skill', new_skill_path(@skill), class: 'navbar-brand' %></li>
+          <% if current_user.username == 'Curry' %>
+            <li><%= link_to 'Add skill', new_skill_path(@skill), class: 'navbar-brand' %></li>
+          <% end %>
           <li><%= link_to 'References', references_path, class: 'navbar-brand' %></li>
           <li><%= link_to 'My Degree', courses_path, class: 'navbar-brand' %></li>
           <li><%= link_to 'logout',  logout_path,    class: 'navbar-brand' %></li>

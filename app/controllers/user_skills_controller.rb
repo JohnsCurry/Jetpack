@@ -2,7 +2,7 @@ class UserSkillsController < ApplicationController
 
 def index
   if current_user.status == 'career/education'
-    @user_skills = UserSkill.all.where(user_id: current_user)
+    @user_skills = UserSkill.all.where(user_id: params[:id])
   else
     @user_skills = UserSkill.all.where(user_id: params[:id])
   end

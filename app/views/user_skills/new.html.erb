@@ -1,5 +1,8 @@
-<h1>Describe what you are learning or have learned from this course</h1>
-
+<% if current_user.status == 'career/education' %>
+  <h1>Describe what you are learning or have learned from this course</h1>
+<% elsif current_user.status == 'Employer' %>
+  <h3>Add this skill to your library to let prospective job candidates know you want to hire someone learning it. Give a brief explanation if you want.</h3>
+<% end %>
 <%= form_for @user_skill do |f|                %>
   <%= f.label      :title                %>
   <%= f.text_field :title                %>

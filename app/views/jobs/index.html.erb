@@ -26,7 +26,6 @@ Search our jobs.
       <li>Company: <%= job.company %></li>
       <li>Salary: <%= job.salary %></li>
       <li><%= job.address %></li>
-      <li><%= link_to "Employer Library", user_skills_path(:id => job.user_id) %></li>
       <% if job.user_id == current_user.id %>
         <li><%=link_to "Edit Job", edit_job_path(job)%></li>
       <% end %>

@@ -79,13 +79,13 @@ Search our jobs.
 
 
   <% @users.each do |user| %>
-    <div class='well'>
-      <% if user.status == 'career/education' %>
+    <% if user.status == 'career/education' %>
+      <div class='well'>
         <li><%= link_to user.username, user_path(user) %></li>
         <p>Tags: <%= raw user.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
         </p>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   <% end %>
 
 

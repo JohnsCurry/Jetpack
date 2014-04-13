@@ -1,0 +1,28 @@
+<strong>Edit your profile.</strong>
+<div class='well'>
+  <%= form_for @user do |f| %>
+
+  <div class='control-group'>
+    <%= f.label      :username %><br/>
+    <%= f.text_field :username %>
+  </div>
+
+  <br/>
+  <div class='control-group'>
+    <%= f.label      :email %><br/>
+    <%= f.text_field :email %>
+  </div>
+  <br/>
+  <div class='field'>
+    <%= f.label :tag_list, "Tags (Separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+  <br/>
+
+    <%= f.text_area  :profile, :class => 'ckeditor' %>
+
+  <br/>
+
+    <%= f.submit @user.new_record? ? "Register" : "Update User", class: 'btn btn-success' %>
+  <% end %>
+</div>

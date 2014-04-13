@@ -1,0 +1,67 @@
+== README
+
+This README would normally document whatever steps are necessary to get the
+application up and running.
+
+Things you may want to cover:
+
+* Ruby version
+
+* System dependencies
+
+* Configuration
+
+* Database creation
+
+* Database initialization
+
+* How to run the test suite
+
+* Services (job queues, cache servers, search engines, etc.)
+
+* Deployment instructions
+
+* ...
+
+
+Please feel free to use a different markup language if you do not plan to run
+<tt>rake doc:app</tt>.
+
+ -- Default Navigation
+
+ 
+<%# navigation styled for Bootstrap 3.0 %>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div class='nav_item'>
+      <ul>
+      <%= link_to 'Home', root_path, class: 'navbar-brand' %>
+      <%= link_to 'Earn Skills',             skills_path(@skill), class: 'navbar-brand' %>
+      <ul class= 'dropdown-menu'><%= link_to 'Categories',              skills_path(@skill), class: 'navbar-brand' %>
+      </ul>
+    <% if logged_in? %>
+      <%= link_to 'Add skill', new_skill_path(@skill), class: 'navbar-brand' %>
+      <%= link_to 'References', references_path, class: 'navbar-brand' %>
+      <%= link_to 'My Degree', courses_path, class: 'navbar-brand' %>
+      <%= link_to 'logout',  logout_path,    class: 'navbar-brand' %>
+    <% else %>
+      <%= link_to 'log in',   login_path,    class: 'navbar-brand' %>
+      <%= link_to 'Register', new_user_path, class: 'navbar-brand' %>
+    <% end %>
+      </ul>
+    </div>
+    </div>
+    <div class="collapse navbar-collapse">
+      <ul class="nav navbar-nav">
+        <%= render 'layouts/navigation_links' %>
+      </ul>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,91 @@
+<% if current_user.status == 'career/education' %>
+Search our jobs. 
+
+<%= form_tag jobs_path, :method => :get do %>
+  <p>Search within (miles)
+    <%= text_field_tag :miles, params[:miles]  %>
+    of (city, State)
+    <%= text_field_tag :search, params[:search] %>
+   
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+
+<% end %>
+
+
+
+<div id="tag_cloud">
+  <% tag_cloud Job.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+  <% @jobs.each do |job| %>
+    <div class='well'>
+      <h2><%= link_to job.title, job_path(:id => job.id) %></h2>
+      <li>Company: <%= job.company %></li>
+      <li>Salary: <%= job.salary %></li>
+      <li><%= job.address %></li>
+      <% if job.user_id == current_user.id %>
+        <li><%=link_to "Edit Job", edit_job_path(job)%></li>
+      <% end %>
+      <p>
+        Tags: <%= raw job.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </p>
+    </div>
+  <% end %>
+
+<% elsif current_user.status == 'Employer' %>
+
+
+<%= form_tag jobs_path, :method => :get do %>
+  <p>Search within (miles)
+    <%= text_field_tag :miles, params[:miles]  %>
+    of (city, State)
+    <%= text_field_tag :search, params[:search] %>
+   
+    <%= submit_tag "Search Near", :name => nil %>
+  </p>
+
+<% end %>
+
+
+  <h1>Search profiles</h1>
+    <p>Click tags to filter results</p><br/>
+  <div id="tag_cloud">
+  <% tag_cloud User.tag_counts, %w[s m l] do |tag, css_class| %>
+    <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+  <% end %>
+</div>
+
+<%#= form_tag users_path, :method => 'get' do %>
+  <%#<p>
+    <%= text_field_tag :search, params[:search] %>
+    <%#= submit_tag "Search", :name => nil %>
+  <%#</p>
+<% end %>
+
+  <%#= form_tag users_path, :method => 'get' do %>
+    <%# @tags.each do |tags| %>
+      <%#<li><%#= check_box_tag "tag_id[]", tags.id %>
+          <%#= tags.name %>
+      <%#</li>
+    <%# end %>
+    <%#= submit_tag "Search" %>
+
+  <%# end %>
+
+
+
+
+  <% @users.each do |user| %>
+    <div class='well'>
+      <li><%= link_to user.username, user_path(user) %></li>
+      <p>Tags: <%= raw user.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </p>
+    </div>
+  <% end %>
+
+
+
+<% end %>

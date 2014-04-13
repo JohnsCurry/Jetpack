@@ -1,0 +1,119 @@
+
+<nav class="navbar navbar-default" role="navigation">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="div-navbar-thing">
+      <ul class="nav navbar-nav">
+        <% if logged_in? && current_user.status == 'career/education' %>
+          <li><%= link_to 'Add skill', new_skill_path(@skill), class: 'navbar-brand' %></li>
+          <li><%= link_to 'References', references_path, class: 'navbar-brand' %></li>
+          <li><%= link_to 'My Degree', courses_path, class: 'navbar-brand' %></li>
+          <li><%= link_to 'logout',  logout_path,    class: 'navbar-brand' %></li>
+          <li><%= link_to 'Search Jobs',  jobs_path,    class: 'navbar-brand' %></li>
+
+          
+
+
+          <li><%= link_to '#', class: 'navbar-brand dropdown-toggle', 'data-toggle' => 'dropdown', "data-no-turbolink" => true do %>
+            <%= current_user.username %> <span class='caret'></span>
+          <% end %>
+            <ul class='dropdown-menu'>
+              <li> <%= link_to "My Profile", user_skill_path(current_user) %> </li>
+              <li> <%= link_to 'Edit My Profile', edit_user_path(current_user) %></li>
+              <li> <%= link_to 'My Libary', user_skills_path(current_user) %></li>
+              <li> <%= link_to 'My Docs/resumes',     resumes_path %></li>
+            </ul>
+
+          <li><div class="btn-group nav_item">
+          <%= link_to '#', class: 'navbar-brand', 'data-toggle' => 'dropdown' do %>
+          Earn Skills <span class='caret'></span>
+        <% end %>         
+          <ul class="dropdown-menu">
+            <% Category.all.each do |category| %>
+              <li>
+                <%= link_to category.name, category_path(category) %>
+              </li>
+              <% end %>
+              <li class="divider"></li>
+              <li><%= link_to 'All Categories', skills_path %></li>
+          </ul>
+        </li>
+        
+        <% elsif logged_in? && current_user.status == 'Employer' %>
+
+          <li><%= link_to 'logout',  logout_path,    class: 'navbar-brand' %></li>
+          <li><%= link_to 'Post Job',  new_job_path,    class: 'navbar-brand' %></li>
+          <li><%= link_to 'view/edit Jobs', job_path(:id => current_user.id), class: 'navbar-brand' %></li>
+          <li><%= link_to 'Search Users',  jobs_path,    class: 'navbar-brand' %></li>
+          <li><%#= link_to 'Our Jobs',     job_path, %></li>
+          <li><div class="btn-group nav_item">
+          <%= link_to '#', class: 'navbar-brand', 'data-toggle' => 'dropdown' do %>
+          View Skills <span class='caret'></span>
+        <% end %>         
+          <ul class="dropdown-menu">
+            <% Category.all.each do |category| %>
+              <li>
+                <%= link_to category.name, category_path(category) %>
+              </li>
+              <% end %>
+              <li class="divider"></li>
+              <li><%= link_to 'All Categories', skills_path %></li>
+          </ul>
+        </li>
+
+        <% else %>
+          <li><%= link_to 'log in',   login_path,    class: 'navbar-brand' %></li>
+          <li><%= link_to 'Register', new_user_path, class: 'navbar-brand' %></li>
+          <li><div class="btn-group nav_item">
+          <%= link_to '#', class: 'navbar-brand', 'data-toggle' => 'dropdown' do %>
+          Earn Skills <span class='caret'></span>
+        <% end %>         
+          <ul class="dropdown-menu">
+            <% Category.all.each do |category| %>
+              <li>
+                <%= link_to category.name, category_path(category) %>
+              </li>
+              <% end %>
+              <li class="divider"></li>
+              <li><%= link_to 'All Categories', skills_path %></li>
+          </ul>
+        </li>
+        <% end %>
+        <li class='navbar-brand'><font color="red"><strong>Beta</strong></font></li>
+        <li><%= link_to 'Give us Feedback', 'http://www.facebook.com/jetpackedu', :target => '_blank' %></li>
+      
+
+      </ul>
+     <%# <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form> %>
+    <%#  <ul class="nav navbar-nav navbar-right">
+        <%#<li><a href="#">Link</a></li>%>
+        <%#<li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Action</a></li>
+            <li><a href="#">Another action</a></li>
+            <li><a href="#">Something else here</a></li>
+            <li class="divider"></li>
+            <li><a href="#">Separated link</a></li>
+          </ul> 
+        </li>%>
+     <%# </ul>%>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+

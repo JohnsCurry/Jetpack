@@ -1,0 +1,9 @@
+<h1>Welcome to <%=@user.username%>'s profile.</h1>
+
+<h3>Click on the links below to learn more about <%=@user.username%></h3>
+
+<%= link_to "#{@user.username}'s Degree progress", course_path(:id => @user.id) %><br/>
+<%= link_to "#{@user.username}'s References",      references_path(:id => @user.id) %><br/>
+<%= link_to "#{@user.username}'s Library", user_skills_path(:id => @user.id) %><br/>
+<%= link_to "#{@user.username}'s Documents and resumes", resumes_path(:id => @user.id) %> <br/>
+<%= link_to "#{@user.username}'s Profile", user_skill_path(:id => @user.id) %> <br/>

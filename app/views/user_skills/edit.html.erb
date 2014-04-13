@@ -1,0 +1,10 @@
+<%= @user_skill.title %>
+
+<%= form_for @user_skill do |f|                %>
+  <%= f.label  :progress %>
+  <%= f.text_area :progress, rows: 10 %>
+
+<br/><br/>
+
+  <%= f.submit @user_skill.new_record? ? "Add to my library" : "Update Skill", class: 'btn btn-primary'    %>
+<% end %>

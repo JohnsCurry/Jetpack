@@ -1,0 +1,16 @@
+<h1>My References</h1>
+
+<% @references.each do |reference| %>
+<p class='well'>
+ <strong>Name:</strong> <%= reference.name %> <br/>
+ <strong>Relationship:</strong> <%= reference.relationship %> <br/>
+ <strong>Phone:</strong> <%= reference.phone               %><br/>
+ <strong>Email:</strong> <%= reference.email               %><br/>
+ <strong>Company:</strong> <%= reference.company           %><br/>
+ <strong>Comments:</strong> <%= reference.comments         %><br/>
+</p>
+<% end %>
+
+<% if current_user.status == 'career/education' %>
+  <h3 class='btn btn-warning'> <%= link_to 'Add new Reference', new_reference_path %></h3>
+<% end %>

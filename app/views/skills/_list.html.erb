@@ -1,0 +1,12 @@
+<ul>
+<% cat.each do |skill| %>
+<li class='well'>  <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
+  <% if current_user.status == 'career/education' %>
+    <small><%= link_to 'Add to My Library', new_user_skill_path(:skill_id => skill.id) %></small>
+  <% end %>
+  <br><strong>Description</strong><br>
+  <%=skill.description%>
+</li>
+
+<% end %>
+</ul>

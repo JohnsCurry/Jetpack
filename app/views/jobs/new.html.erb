@@ -1,0 +1,29 @@
+<%= form_for @job do |f|                %>
+  <%= f.label      :company                %>
+  <%= f.text_field :company                %>
+  <br/>
+  <%= f.label      :position                  %>
+  <%= f.text_field :title                  %>
+  <br/>
+  <%= f.label           :address %>
+  <%= f.text_field      :address %>
+
+  <%= f.hidden_field :longitude %>
+  <%= f.hidden_field :latitude  %>
+  
+  <br/>
+  <%= f.label      :salary %>
+  <%= f.text_field :salary %>
+  <br/>
+  <br/>
+  <%= f.text_area  :description, :class => 'ckeditor' %>
+  <br/>
+  <div class="field">
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+
+
+
+  <%= f.submit @job.new_record? ? "Create Job" : "Update Job", class: 'btn btn-primary'    %>
+<% end %>

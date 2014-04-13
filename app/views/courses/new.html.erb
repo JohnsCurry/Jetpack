@@ -1,0 +1,21 @@
+<br><br>
+<%= form_for @course do |f| %>
+
+  <%= f.label      :name %>
+  <%= f.text_field :name %>
+<br/><br/>
+  <%= f.label      :title %>
+  <%= f.text_field :title %>
+<br/><br/>
+  <%= f.label      :grade %>
+  <%= f.text_field :grade %>
+<br/><br/>
+  <%= f.label  :Course_Status %>
+  <%= f.select :status, options_for_select(%w[COMPLETE! In\ progress Future\ class]) %>
+<br/><br/>
+  <%= f.label  :Degree_Type %>
+  <%= f.select :degree, options_for_select(%w[Certificate License Associates Bachelors Masters Doctoral]) %>
+
+<%= f.submit "Add your courses" %>
+
+<% end %>

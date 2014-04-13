@@ -1,0 +1,99 @@
+<div class='pull-right'>
+  <h2>Employers Register Here</h2>
+<div class='well'>
+  <%= form_for @user do |f| %>
+
+  <div class='control-group'>
+    <%= f.label      :username %><br/>
+    <%= f.text_field :username %>
+  </div>
+  <br/>
+  <div class='control-group'>
+    <%= f.label      :email %><br/>
+    <%= f.text_field :email %>
+  </div>
+  <br/>
+  <div class='control-group'>
+    <%= f.label     :address %><br/>
+    <%= f.text_field :address %> <p>Just a zip code is fine. No need for a full address</p>
+    <%= f.hidden_field :longitude %>
+    <%= f.hidden_field :latitude %>
+  </div>
+
+  <br/>
+
+  <div class='hidden'>
+    <%= f.label      :user_status %>
+    <%= f.select     :status, options_for_select(%w[Employer])%>
+  </div>
+  <br/>
+  <div class='control-group'>
+    <%= f.label          :password %><br/>
+    <%= f.password_field :password %>
+  </div>
+    <br/>
+
+  <div class='control-group'>
+    <%= f.label :password_confirmation %><br/>
+    <%= f.password_field :password_confirmation %>
+  </div>
+    <br/>
+    <%= f.submit @user.new_record? ? "Register" : "Update User", class: 'btn btn-success' %>
+  <% end %>
+</div>
+</div>
+
+
+
+<div class='pull-left'>
+  <h2>Everyone else register here</h2>
+<div class='well'>
+  <%= form_for @user do |f| %>
+
+  <div class='control-group'>
+    <%= f.label      :username %><br/>
+    <%= f.text_field :username %>
+  </div>
+  <br/>
+  <div class='control-group'>
+    <%= f.label      :email %><br/>
+    <%= f.text_field :email %>
+  </div>
+  <br/>
+  <div class='control-group'>
+    <%= f.label     :address %><br/>
+    <%= f.text_field :address %> <p>Just a zip code is fine. No need for a full address</p>
+    <%= f.hidden_field :longitude %>
+    <%= f.hidden_field :latitude %>
+  </div>
+
+  <br/>
+
+  <div class='hidden'>
+    
+    <%= f.label      :user_status %>
+    <%= f.select     :status, options_for_select(%w[career/education])%>
+  </div>
+  <br/>
+  <div class='control-group'>
+    <%= f.label          :password %><br/>
+    <%= f.password_field :password %>
+  </div>
+    <br/>
+
+  <div class='control-group'>
+    <%= f.label :password_confirmation %><br/>
+    <%= f.password_field :password_confirmation %>
+  </div>
+    <br/>
+  <div class='field'>
+    <p>Tags describe you to employers.</p>
+    <strong>For example: <br/>Registered Nurse, Food Card, Business degree, etc...</strong></p>
+    <%= f.label :tag_list, "Tags (Separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
+  </div>
+  <br/>
+    <%= f.submit @user.new_record? ? "Register" : "Update User", class: 'btn btn-success' %>
+  <% end %>
+</div>
+</div>

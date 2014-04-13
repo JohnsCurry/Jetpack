@@ -1,0 +1,39 @@
+<h1>Search profiles</h1>
+
+<%#= form_tag users_path, :method => 'get' do %>
+  <%#<p>
+    <%= text_field_tag :search, params[:search] %>
+    <%#= submit_tag "Search", :name => nil %>
+  <%#</p>
+<% end %>
+
+  <%#= form_tag users_path, :method => 'get' do %>
+    <%# @tags.each do |tags| %>
+      <%#<li><%#= check_box_tag "tag_id[]", tags.id %>
+          <%#= tags.name %>
+      <%#</li>
+    <%# end %>
+    <%#= submit_tag "Search" %>
+
+  <%# end %>
+
+
+
+
+  <% @users.each do |user| %>
+    <div class='well'>
+      <li><%= link_to user.username, user_path(user) %></li>
+      <p>Tags: <%= raw user.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      </p>
+    </div>
+  <% end %>
+
+
+
+<br><br>
+
+<div class='well'>
+
+<p>I'm in a well!</p>
+
+</div>

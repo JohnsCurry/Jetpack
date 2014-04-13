@@ -1,0 +1,23 @@
+
+
+<%= form_for @skill do |f|                %>
+  <%= f.label      :title                %><br/>
+  <%= f.text_field :title                %>
+  <br/>
+  <%= f.label      :url                  %><br/>
+  <%= f.text_field :url                  %>
+  <br/>
+  <%= f.label      :description          %>
+  <br/>
+  <%= f.text_area  :description, rows: 5 %>
+  <br/>
+
+  <div class='control-group'>
+    <%= f.label "Categories" %>
+    <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+    <%= cb.label(class: "checkbox inline") {cb.check_box(class: "checkbox") + cb.text} %>
+    <% end %>
+  </div>
+
+  <%= f.submit @skill.new_record? ? "Create Skill" : "Update Skill", class: 'btn btn-primary'    %>
+<% end %>

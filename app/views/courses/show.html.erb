@@ -1,0 +1,137 @@
+<div class='pull-right'>
+<h2>My degree plan: All Courses</h2>
+<p>
+  <% @courses.each do |course| %>
+    <strong>Name:</strong> <%= course.name %>
+    <strong>Title:</strong> <%= course.title %>
+    <strong>Grade:</strong> <%= course.grade %>
+    <br/>
+  <% end %>
+</p>
+</div>
+
+<h3>My Certificates & licenses:</h3>
+  <% @courses.each do |course| %>
+    <% if course.degree == 'Certificate' || course.degree == 'License' %>
+      <strong>Name:  </strong><%= course.name %>
+      <strong>Title: </strong><%= course.title %>
+      <strong>Grade: </strong><%= course.grade %>
+      <br/>
+    <% end %>
+  <% end %>
+
+
+<h3>My Degree progress:<br/></h3>
+
+<h4> Associates Degree: </h4>
+  <h5>Courses complete</h5>
+<% @courses.each do |course| %>
+  
+  <% if course.status == 'COMPLETE!' && course.degree == 'Associates' %>
+  <strong>Name:</strong> <%= course.name %>
+  <strong>Title:</strong> <%= course.title %>
+  <strong>Grade:</strong> <%= course.grade %>
+  <br/>
+  <% end %>
+<% end %>
+
+<h4>Coming Up</h4>
+
+  <% @courses.each do |course| %>
+  
+  <% if course.status != 'COMPLETE!' %>
+  <strong>Name:</strong> <%= course.name %>
+  <strong>Title:</strong> <%= course.title %>
+  <strong>Grade:</strong> <%= course.grade %>
+  <br/>
+  <% end %>
+<% end %>
+
+<% if current_user.status == 'career/education' %>
+  <p><%= link_to 'add courses', new_course_path %></p>
+<% end %>
+
+<br><br>
+<h4>Bachelors Degree:</h4>
+<h5>Courses Complete:</h5>
+  
+  <% @courses.each do |course| %>
+    <% if course.degree == 'Bachelors' && course.status == 'COMPLETE!' %>
+      <strong>Name:  </strong><%= course.name %>
+      <strong>Title: </strong><%= course.title %>
+      <strong>Grade: </strong><%= course.grade %>
+      <br/>
+    <% end %>
+  <% end %>
+
+
+<h4>Coming Up</h4>
+
+  <% @courses.each do |course| %>
+  
+    <% if course.status != 'COMPLETE!' && course.degree == 'Bachelors' %>
+      <strong>Name:</strong> <%= course.name %>
+      <strong>Title:</strong> <%= course.title %>
+      <strong>Grade:</strong> <%= course.grade %>
+      <br/>
+    <% end %>
+<% end %>
+<% if current_user.status == 'career/education' %>
+  <p><%= link_to 'add courses', new_course_path %></p>
+<% end %>
+
+<br><br>
+<h4>Masters Degree:</h4>
+<h5>Courses Complete:</h5>
+  
+  <% @courses.each do |course| %>
+    <% if course.degree == 'Masters' && course.status == 'COMPLETE!' %>
+      <strong>Name:  </strong><%= course.name %>
+      <strong>Title: </strong><%= course.title %>
+      <strong>Grade: </strong><%= course.grade %>
+      <br/>
+    <% end %>
+  <% end %>
+
+<h4>Coming Up</h4>
+
+  <% @courses.each do |course| %>
+  
+    <% if course.status != 'COMPLETE!' && course.degree == 'Masters' %>
+      <strong>Name:</strong> <%= course.name %>
+      <strong>Title:</strong> <%= course.title %>
+      <strong>Grade:</strong> <%= course.grade %>
+      <br/>
+    <% end %>
+<% end %>
+<% if current_user.status == 'career/education' %>
+  <p><%= link_to 'add courses', new_course_path %></p>
+<% end %>
+
+<br><br>
+<h4>Doctoral Degree:</h4>
+<h5>Courses Complete:</h5>
+  
+  <% @courses.each do |course| %>
+    <% if course.degree == 'Doctoral' && course.status == 'COMPLETE!' %>
+      <strong>Name:  </strong><%= course.name %>
+      <strong>Title: </strong><%= course.title %>
+      <strong>Grade: </strong><%= course.grade %>
+      <br/>
+    <% end %>
+  <% end %>
+
+<h4>Coming Up</h4>
+
+  <% @courses.each do |course| %>
+  
+    <% if course.status != 'COMPLETE!' && course.degree == 'Doctoral' %>
+      <strong>Name:</strong> <%= course.name %>
+      <strong>Title:</strong> <%= course.title %>
+      <strong>Grade:</strong> <%= course.grade %>
+      <br/>
+    <% end %>
+<% end %>
+<% if current_user.status == 'career/education' %>
+  <p><%= link_to 'add courses', new_course_path %></p>
+<% end %>

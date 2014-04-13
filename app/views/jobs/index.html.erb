@@ -80,9 +80,11 @@ Search our jobs.
 
   <% @users.each do |user| %>
     <div class='well'>
-      <li><%= link_to user.username, user_path(user) %></li>
-      <p>Tags: <%= raw user.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
-      </p>
+      <% if user.status == 'career/education' %>
+        <li><%= link_to user.username, user_path(user) %></li>
+        <p>Tags: <%= raw user.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+        </p>
+      <% end %>
     </div>
   <% end %>
 

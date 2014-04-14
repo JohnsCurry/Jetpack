@@ -72,7 +72,7 @@ Jetpack::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => "cryptic-reef-1625" }
+  config.action_mailer.default_url_options = { :host => "boiling-garden-2168" }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

@@ -83,9 +83,10 @@ Jetpack::Application.configure do
    :address            => 'smtp.gmail.com',
    :port               => 587,
    :domain             => 'gmail.com', #you can also use google.com
-   :authentication     => :plain,
+   :authentication     => 'plain',
    :user_name          => 'john.steven.curry@gmail.com',
-   :password           => '1W4ntm0n3y!!'
+   :password           => '1W4ntm0n3y!!',
+   :enable_starttls_auto => true
   }
 
   # Disable automatic flushing of the log to improve performance.

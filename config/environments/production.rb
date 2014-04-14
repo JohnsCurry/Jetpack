@@ -72,7 +72,21 @@ Jetpack::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
-  config.action_mailer.default_url_options = { :host => "boiling-garden-2168" }
+  config.action_mailer.default_url_options = { :host => "http://boiling-garden-2168.herokuapp.com/" }
+
+  ActionMailer::Base.delivery_method = :smtp
+  ActionMailer::Base.perform_deliveries = true
+  ActionMailer::Base.raise_delivery_errors = true
+  ActionMailer::Base.smtp_settings = 
+  {
+
+   :address            => 'smtp.gmail.com',
+   :port               => 587,
+   :domain             => 'gmail.com', #you can also use google.com
+   :authentication     => :plain,
+   :user_name          => 'john.steven.curry@gmail.com',
+   :password           => '1W4ntm0n3y!!'
+  }
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

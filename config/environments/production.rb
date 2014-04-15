@@ -72,11 +72,14 @@ Jetpack::Application.configure do
   # Send deprecation notices to registered listeners.
   config.active_support.deprecation = :notify
 
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { :host => "http://boiling-garden-2168.herokuapp.com/" }
 
-  ActionMailer::Base.delivery_method = :smtp
-  ActionMailer::Base.perform_deliveries = true
-  ActionMailer::Base.raise_delivery_errors = true
+  #ActionMailer::Base.delivery_method = :smtp
+  #ActionMailer::Base.perform_deliveries = true
+  #ActionMailer::Base.raise_delivery_errors = true
   #ActionMailer::Base.smtp_settings = 
   #{
 
@@ -91,31 +94,31 @@ Jetpack::Application.configure do
 
   require 'mail'
 
-Mail.defaults do
-  delivery_method :smtp, {
-    :address => 'smtp.sendgrid.net',
-    :port => '587',
-    :domain => 'heroku.com',
-    :user_name => ENV['app24067842@heroku.com'],
-    :password => ENV['g6enfd5m'],
-    :authentication => :plain,
-    :enable_starttls_auto => true
-  }
+#Mail.defaults do
+#  delivery_method :smtp, {
+#    :address => 'smtp.sendgrid.net',
+#    :port => '587',
+#    :domain => 'heroku.com',
+#    :user_name => ENV['app24067842@heroku.com'],
+#    :password => ENV['g6enfd5m'],
+ #   :authentication => :plain,
+ #   :enable_starttls_auto => true
+ # }
 
-end
+#end
 
-mail = Mail.deliver do
-  to 'john.steven.curry@gmail.com'
-  from 'john.steven.curry@gmail.com'
-  subject 'This is the subject of your email'
-  text_part do
-    body 'Hello world in text'
-  end
-  html_part do
-    content_type 'text/html; charset=UTF-8'
-    body '<b>Hello world in HTML</b>'
-  end
-end
+#mail = Mail.deliver do
+ # to 'john.steven.curry@gmail.com'
+ # from 'john.steven.curry@gmail.com'
+ # subject 'This is the subject of your email'
+ # text_part do
+ #   body 'Hello world in text'
+ # end
+ # html_part do
+ #   content_type 'text/html; charset=UTF-8'
+ #   body '<b>Hello world in HTML</b>'
+ # end
+#end
 
 
   # Disable automatic flushing of the log to improve performance.

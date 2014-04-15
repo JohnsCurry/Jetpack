@@ -167,6 +167,7 @@ DEPENDENCIES
   jbuilder (~> 1.2)
   jquery-rails
   jquery-turbolinks
+  mail
   pg
   pry
   rails (= 4.0.0)

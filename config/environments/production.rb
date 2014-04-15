@@ -104,6 +104,19 @@ Mail.defaults do
 
 end
 
+mail = Mail.deliver do
+  to 'john.steven.curry@gmail.com'
+  from 'john.steven.curry@gmail.com'
+  subject 'This is the subject of your email'
+  text_part do
+    body 'Hello world in text'
+  end
+  html_part do
+    content_type 'text/html; charset=UTF-8'
+    body '<b>Hello world in HTML</b>'
+  end
+end
+
 
   # Disable automatic flushing of the log to improve performance.
   # config.autoflush_log = false

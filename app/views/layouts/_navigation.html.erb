@@ -53,12 +53,12 @@
         
         <% elsif logged_in? && current_user.status == 'Employer' %>
 
-          <li><%= link_to 'logout',  logout_path,    class: 'navbar-brand' %></li>
-          <li><%= link_to 'Post Job',  new_job_path,    class: 'navbar-brand' %></li>
-          <li><%= link_to 'view/edit Jobs', job_path(:id => current_user.id), class: 'navbar-brand' %></li>
-          <li><%= link_to 'Search Users',  jobs_path,    class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'logout',  logout_path,    class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'Post Job',  new_job_path,    class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'view/edit Jobs', job_path(:id => current_user.id), class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'Search Users',  jobs_path,    class: 'navbar-brand' %></li>
           <li><%#= link_to 'Our Jobs',     job_path, %></li>
-          <li><div class="btn-group nav_item">
+          <li class='clearfix'><div class="btn-group nav_item">
           <%= link_to '#', class: 'navbar-brand', 'data-toggle' => 'dropdown' do %>
           View Skills <span class='caret'></span>
         <% end %>         

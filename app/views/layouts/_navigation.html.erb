@@ -18,25 +18,25 @@
           <% if current_user.username == 'Curry' %>
             <li><%= link_to 'Add skill', new_skill_path(@skill), class: 'navbar-brand' %></li>
           <% end %>
-          <li><%= link_to 'References', references_path, class: 'navbar-brand' %></li>
-          <li><%= link_to 'My Degree', courses_path, class: 'navbar-brand' %></li>
-          <li><%= link_to 'logout',  logout_path,    class: 'navbar-brand' %></li>
-          <li><%= link_to 'Search Jobs',  jobs_path,    class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'References', references_path, class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'My Degree', courses_path, class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'logout',  logout_path,    class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'Search Jobs',  jobs_path,    class: 'navbar-brand' %></li>
 
           
 
 
-          <li><%= link_to '#', class: 'navbar-brand dropdown-toggle', 'data-toggle' => 'dropdown', "data-no-turbolink" => true do %>
+          <li class='clearfix'><%= link_to '#', class: 'navbar-brand dropdown-toggle', 'data-toggle' => 'dropdown', "data-no-turbolink" => true do %>
             <%= current_user.username %> <span class='caret'></span>
           <% end %>
             <ul class='dropdown-menu'>
-              <li> <%= link_to "My Profile", user_skill_path(current_user) %> </li>
-              <li> <%= link_to 'Edit My Profile', edit_user_path(current_user) %></li>
-              <li> <%= link_to 'My Library', user_skills_path(:id => current_user.id) %></li>
-              <li> <%= link_to 'My Docs/resumes',     resumes_path %></li>
+              <li class='clearfix'> <%= link_to "My Profile", user_skill_path(current_user) %> </li>
+              <li class='clearfix'> <%= link_to 'Edit My Profile', edit_user_path(current_user) %></li>
+              <li class='clearfix'> <%= link_to 'My Library', user_skills_path(:id => current_user.id) %></li>
+              <li class='clearfix'> <%= link_to 'My Docs/resumes',     resumes_path %></li>
             </ul>
 
-          <li><div class="btn-group nav_item">
+          <li class='clearfix'><div class="btn-group nav_item">
           <%= link_to '#', class: 'navbar-brand', 'data-toggle' => 'dropdown' do %>
           Earn Skills <span class='caret'></span>
         <% end %>         
@@ -74,25 +74,25 @@
         </li>
 
         <% else %>
-          <li><%= link_to 'log in',   login_path,    class: 'navbar-brand' %></li>
-          <li><%= link_to 'Register', new_user_path, class: 'navbar-brand' %></li>
-          <li><div class="btn-group nav_item">
+          <li class='clearfix'><%= link_to 'log in',   login_path,    class: 'navbar-brand' %></li>
+          <li class='clearfix'><%= link_to 'Register', new_user_path, class: 'navbar-brand' %></li>
+          <li class='clearfix'><div class="btn-group nav_item">
           <%= link_to '#', class: 'navbar-brand', 'data-toggle' => 'dropdown' do %>
           Earn Skills <span class='caret'></span>
         <% end %>         
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
-              <li>
+              <li class='clearfix'>
                 <%= link_to category.name, category_path(category) %>
               </li>
               <% end %>
               <li class="divider"></li>
-              <li><%= link_to 'All Categories', skills_path %></li>
+              <li class='clearfix'><%= link_to 'All Categories', skills_path %></li>
           </ul>
         </li>
         <% end %>
         <li class='navbar-brand'><font color="red"><strong>Beta</strong></font></li>
-        <li><%= link_to 'Give us Feedback', 'http://www.facebook.com/jetpackedu', :target => '_blank' %></li>
+        <li class='clearfix'><%= link_to 'Give us Feedback', 'http://www.facebook.com/jetpackedu', :target => '_blank' %></li>
       
 
       </ul>

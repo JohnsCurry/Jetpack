@@ -46,7 +46,7 @@
 
 
 <div class='pull-left'>
-  <h2>Everyone else register here</h2>
+  <h3>Job seekers and students register here</h3>
 <div class='well'>
   <%= form_for @user do |f| %>
 
@@ -62,7 +62,7 @@
   <br/>
   <div class='control-group'>
     <%= f.label     :address %><br/>
-    <%= f.text_field :address %> <p>Just a zip code is fine. No need for a full address</p>
+    <%= f.text_field :address %>
     <%= f.hidden_field :longitude %>
     <%= f.hidden_field :latitude %>
   </div>

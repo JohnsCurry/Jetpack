@@ -99,5 +99,8 @@
    
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
+  <% if current_user && current_user.status == 'career/education' %>
+  <%= link_to "Step 1 -> References", references_path %> <%= link_to "Step 2 -> Degree", courses_path %> <%= link_to "Step 3 -> Resume", resumes_path %> <%= link_to "Step 4 -> Profile", edit_user_path(current_user) %> <%= link_to "Step 5 -> Grow", skills_path %>
+  <% end %>
 </nav>
 

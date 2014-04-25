@@ -8,7 +8,9 @@
         <p><strong>Student's Progress</strong></p>
         <%=skill.progress%>
         <br/>
+      <% if current_user != nil && current_user.id == params[:id].to_i %>
         <%= link_to 'Update progress', edit_user_skill_path(:id => skill.id) %>
+      <% end %><%binding.pry%>
       </li>
   <% end %>
 </ul>

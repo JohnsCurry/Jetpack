@@ -19,6 +19,16 @@
 
  }
 
+ leftfloat {
+ float: left;
+ }
+
+ #register_button {
+  float: right;
+  padding-right:50px;
+  padding-left:50px;
+ }
+
  .well {
     background-color: !important;
  }

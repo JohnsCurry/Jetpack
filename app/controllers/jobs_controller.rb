@@ -1,4 +1,5 @@
 class JobsController < ApplicationController
+before_action :require_user, only: [:new] 
 
   def index
     if params[:search].present?

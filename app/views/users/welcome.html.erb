@@ -1,29 +1,52 @@
-<h1>Welcome to our site!</h1>
 
-<h3>Register above! Add skills, post jobs, Add your degree and show off!</h3>
-
-
-<h3>The Mission</h3>
-
-<p>The goal of this site is to provide you with the opportunity to learn things that will propel you forward in your career path. If you are an employer, we want to give you the <strong>Best</strong> team the world has to offer. You can earn do the following stuff:</p>
-
+<% if current_user == nil %>
+  <form action="<%= register_path %>">
+      <input type="submit" id= 'register_button' value="Register!">
+  </form>
+  <form action="<%= login_path %>">
+      <input type="submit" id='register_button' value="Log in">
+  </form>
+  <br><br>
+<% else %>
+  <form action="<%= logout_path %>">
+      <input type="submit" id='register_button' value="Log out">
+  </form>
+  <br><br>
+<% end %>
 
 <div class='pull-right'>
-<h4>Employers</h4>
-<ul>
-  <li>Post Jobs for users to search</li>
-  <li>Search through users to hire the best</li>
-  <li>Filter results based on skills you want in your team.</li>
-</ul>
+  <h1>Job Openings</h1>
+  <% @jobs.each do |job| %>
+
+    <div class='well'>
+      
+      <h2><%=link_to job.title, job_path(:id => job.id) %></h2>
+        <li>Company: <%= job.company %></li>
+        <li>Salary: <%= job.salary %></li>
+        <li><%= job.address %></li>
+
+    </div>
+  <% end %>
 </div>
 
+<h4>Post your resume, college courses, references, and more. <br>
+    We are giving you access to world class educational<br> resources so you can get ahead in life.
+ </h4>
+
 <div class='pull-left'>
-<h4>Students/Learners</h4>
-<ul>
-<li>Learn valuable skills</li>
-<li>Earn certifications</li>
-<li>Track your degree progress</li>
-<li>Download and store your resumes, certificaions, and licenses</li>
-<li>Show off your skills, College courses, and motivation to employers </li>
-</ul>
+  <h1>Our Skills</h1> 
+  <form action="<%= new_job_path %>">
+      <input type="submit" value="Post Job, 100% Free">
+  </form><br>
+  <% @skills.each do |skill| %>
+
+    <div class='well'> <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
+        <small><%= link_to 'Add to My Library', new_user_skill_path(:skill_id => skill.id) %></small>
+        <br><strong>Description</strong><br>
+        <%=skill.description %>
+
+
+    </div>
+  <% end %>
 </div>
+

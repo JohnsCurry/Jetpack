@@ -7,15 +7,9 @@
         ----------------------------------------------------------------<br>
         <%=skill.progress%>
         <br/>
-<<<<<<< HEAD
       <% if current_user != nil && current_user.id == params[:id].to_i %>
         <%= link_to 'Update progress', edit_user_skill_path(:id => skill.id) %>
-      <% end %><%binding.pry%>
-=======
-          <% if current_user != nil && current_user.id == params[:id].to_i %>
-            <%= link_to 'Update progress', edit_user_skill_path(:id => skill.id) %>
-          <% end %>
->>>>>>> hotfix
+      <% end %>
       </li>
   <% end %>
 </ul>

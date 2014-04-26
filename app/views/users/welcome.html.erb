@@ -17,6 +17,7 @@
   <br><br>
 <% end %>
 
+<% if current_user == nil || current_user.status == 'career/education' %>
 <div class='pull-right'>
   <h1>Job Openings</h1>
   <% @jobs.each do |job| %>
@@ -31,6 +32,8 @@
     </div>
   <% end %>
 </div>
+
+<% end %>
 
 <h4>Post your resume, college courses, references, and more. <br>
     We are giving you access to world class educational<br> resources so you can get ahead in life.

@@ -16,6 +16,10 @@ class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 
+  #def wrap(s, width=78)
+  #  s.gsub(/(.{1,#{width}})(\s+|\Z)/, "\\1<br>").html_safe
+  #end
+
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now

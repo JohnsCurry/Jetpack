@@ -4,11 +4,12 @@
       <li class='well'> <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
         <br><strong>Description</strong><br>
         <%=skill.description%><br/>
-        ----------------------------------------------------------------
-        <p><strong>Student's Progress</strong></p>
+        ----------------------------------------------------------------<br>
         <%=skill.progress%>
         <br/>
-        <%= link_to 'Update progress', edit_user_skill_path(:id => skill.id) %>
+          <% if current_user != nil && current_user.id == params[:id].to_i %>
+            <%= link_to 'Update progress', edit_user_skill_path(:id => skill.id) %>
+          <% end %>
       </li>
   <% end %>
 </ul>

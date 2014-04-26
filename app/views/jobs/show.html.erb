@@ -1,4 +1,4 @@
-<% if current_user.status == 'career/education' %>
+<% if current_user == nil || current_user.status == 'career/education' %>
   <%= @job.description.html_safe %>
   <%= link_to "Employer Library", user_skills_path(:id => @job.user_id) %>
 <% elsif current_user.status == 'Employer' %>

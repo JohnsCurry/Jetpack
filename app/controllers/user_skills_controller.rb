@@ -1,7 +1,7 @@
 class UserSkillsController < ApplicationController
-
+before_action :require_user, only: [:new]
 def index
-  if current_user.status == 'career/education'
+  if current_user == nil || current_user.status == 'career/education'
     @user_skills = UserSkill.all.where(user_id: params[:id])
   else
     @user_skills = UserSkill.all.where(user_id: params[:id])

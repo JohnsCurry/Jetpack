@@ -8,7 +8,8 @@ gem 'acts-as-taggable-on'
 gem 'ckeditor_rails'
 gem 'jquery-turbolinks'
 gem 'geocoder'
-gem 'mail'
+gem 'pony'
+gem 'will_paginate', '~> 3.0.5'
 
 
 # Use sqlite3 as the database for Active Record

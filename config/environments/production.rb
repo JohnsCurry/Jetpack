@@ -75,8 +75,6 @@ Jetpack::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = false
-  config.action_mailer.default_url_options = { :host => "http://boiling-garden-2168.herokuapp.com/" }
-
   #ActionMailer::Base.delivery_method = :smtp
   #ActionMailer::Base.perform_deliveries = true
   #ActionMailer::Base.raise_delivery_errors = true
@@ -92,7 +90,6 @@ Jetpack::Application.configure do
   # :enable_starttls_auto => true
   #}
 
-  require 'mail'
 
 #Mail.defaults do
 #  delivery_method :smtp, {

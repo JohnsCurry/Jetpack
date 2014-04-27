@@ -58,9 +58,12 @@ def show
 end
 
 def welcome
+  @jobsize = Job.all.size
+  @skillsize = Skill.all.size
   @jobs =   Job.all
+  @jobs = @jobs.paginate(:page => params[:page], :per_page => 5)
   @skills = Skill.all
-
+  @skills = @skills.paginate(:page => params[:page], :per_page => 5)
 end
 
 

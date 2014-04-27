@@ -2,6 +2,8 @@
     s.gsub(/(.{1,#{width}})(\s+|\Z)/, "\\1<br>").html_safe
    end %>
 
+
+
 <% if current_user == nil %>
   <form action="<%= register_path %>">
       <input type="submit" id= 'register_button' value="Register!">
@@ -57,3 +59,8 @@
   <% end %>
 </div>
 
+<% if @jobsize >= @skillsize %>
+  <%= will_paginate @jobs %>
+<% else %>
+  <%= will_paginate @skills %>
+<% end %>

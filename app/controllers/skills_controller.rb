@@ -24,6 +24,12 @@ end
 def show
 end
 
+def destroy
+  @skill = Skill.find(params[:id])
+  @skill.destroy
+  redirect_to skill_path, notice: "Skill was destroyed"
+end
+
 private
 
 def skill_params

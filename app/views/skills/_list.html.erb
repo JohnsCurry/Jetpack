@@ -4,6 +4,9 @@
   <% if logged_in? %>
     <small><%= link_to 'Add to My Library', new_user_skill_path(:skill_id => skill.id) %></small>
   <% end %>
+  <% if logged_in? && current_user.username == 'Curry' %>
+  <%= button_to "Delete",  skill, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{skill.title}?" %>
+  <% end %>
   <br><strong>Description</strong><br>
   <%=skill.description%>
 </li>

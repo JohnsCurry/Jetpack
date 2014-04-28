@@ -24,6 +24,8 @@ def create
   @user = User.new(user_params)
 
   if @user.save
+    # Deliver the signup email
+    Notifier.send_signup_email(@user).deliver
     #UserMailer.registration_confirmation(@user).deliver
   session[:user_id] = @user.id
     if @user.status == 'career/education'

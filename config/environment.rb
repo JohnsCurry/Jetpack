@@ -22,7 +22,7 @@ ActionMailer::Base.smtp_settings = {
   :password => 'g6enfd5m',
   :domain => 'boiling-garden-2168.herokuapp.com',
   :address => 'smtp.sendgrid.net',
-  :port => 25,
+  :port => 2525,
   :authentication => :plain,
   :enable_starttls_auto => true
 }

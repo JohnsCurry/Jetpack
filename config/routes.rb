@@ -1,7 +1,6 @@
 Jetpack::Application.routes.draw do
 
 
-
   root to: 'users#welcome'
   #get 'tags/:tag', to: 'users#index', as: :tag
   get 'tags/:tag', to: 'jobs#index', as: :tag
@@ -18,6 +17,7 @@ Jetpack::Application.routes.draw do
   resources :user_skills
   resources :resumes, only: [:index, :new, :create, :destroy]
   resources :jobs
+  resources :password_resets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

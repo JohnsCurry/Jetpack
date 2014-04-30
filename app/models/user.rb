@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   after_validation :geocode, :if => :address_changed?
 
   validates :username, presence: true, uniqueness: true
+  before_validation {|user| user.email = email.downcase }
   validates :email, presence: true, uniqueness: true
 
   def send_password_reset

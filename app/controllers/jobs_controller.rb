@@ -15,13 +15,6 @@ before_action :require_user, only: [:new]
       @jobs = Job.all
     end
 
-   # if params[:tag]
-   #   @users = User.tagged_with(params[:tag])
-   #   @jobs = Job.tagged_with(params[:tag])
-   # else
-   #   @users = User.all
-   #   @jobs = Job.all
-   # end
   end
 
   def new
@@ -57,6 +50,12 @@ before_action :require_user, only: [:new]
     else
       render :edit
     end
+  end
+
+  def destroy
+    @job = Job.find(params[:id])
+    @job.destroy
+    redirect_to job_path(id: current_user.id)
   end
 
 

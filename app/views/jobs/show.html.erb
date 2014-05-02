@@ -5,6 +5,8 @@
   <% @jobs.each do |job| %>
     <div class='well'>
       <h2><%= job.title %></h2> <h4><%= link_to 'Edit', edit_job_path(:id => job.id) %></h4>
+        <h4><%= button_to "Delete",  job, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{job.title}?" %></h4>
+
       <li>Company: <%= job.company %></li>
       <li>Salary: <%= job.salary %></li>
       <li><%= job.address %></li>

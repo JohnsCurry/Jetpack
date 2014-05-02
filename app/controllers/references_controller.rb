@@ -26,6 +26,10 @@ end
 def show
   @references = Reference.all.where(user_id: params[:id])
 end
+
+def destroy
+end
+
 private
 
 def reference_params

@@ -3,7 +3,7 @@
 class AttachmentUploader < CarrierWave::Uploader::Base
 
   def extension_white_list
-    %w(pdf doc odt)
+    %w(pdf doc odt docx)
   end
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick

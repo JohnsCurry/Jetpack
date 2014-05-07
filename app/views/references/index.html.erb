@@ -2,7 +2,9 @@
 
 <% @references.each do |reference| %>
 <p class='well'>
+  <% if current_user.status == 'career/education' %>
   <%= link_to "Delete",  reference, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete this reference?" %>
+  <% end %>
  <strong>Name:</strong> <%= reference.name %> <br/>
  <strong>Relationship:</strong> <%= reference.relationship %> <br/>
  <strong>Phone:</strong> <%= reference.phone               %><br/>

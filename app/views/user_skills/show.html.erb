@@ -2,9 +2,45 @@
 <h1><%= @user.username%>'s Profile</h1>
 
 <%= @user.profile.html_safe %>
+
+  <ul>
+    <% @user_skills.each do |skill| %>
+        <li class='well'> <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
+          <br><strong>Description</strong><br>
+          <%=skill.description%><br/>
+          ----------------------------------------------------------------<br>
+          <%=skill.progress%>
+          <br/>
+        <% if current_user != nil && current_user.id == params[:id].to_i %>
+          <%= link_to 'Update progress', edit_user_skill_path(:id => skill.id) %>
+        <% end %>
+        </li>
+    <% end %>
+  </ul>
+
+
+
 <% else %>
 <h1><%= @user.username %> Has not set up a profile yet</h1>
   <% if current_user.status == 'career/education' %>
     set it up here: <%= link_to "setup profile", edit_user_path(current_user) %>
   <% end %>
+
+<h2><%= @user.username %> is currently learning the following from our website:</h2>
+
+  <ul>
+    <% @user_skills.each do |skill| %>
+        <li class='well'> <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
+          <br><strong>Description</strong><br>
+          <%=skill.description%><br/>
+          ----------------------------------------------------------------<br>
+          <%=skill.progress%>
+          <br/>
+        <% if current_user != nil && current_user.id == params[:id].to_i %>
+          <%= link_to 'Update progress', edit_user_skill_path(:id => skill.id) %>
+        <% end %>
+        </li>
+    <% end %>
+  </ul>
+
 <% end %>

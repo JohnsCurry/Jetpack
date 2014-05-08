@@ -2,8 +2,11 @@ class JobsController < ApplicationController
 before_action :require_user, only: [:new] 
 
   def index
-    
-    if params[:search].present?
+
+    if params[:search].present? && params[:tag].present?
+      @jobs = Job.near(params[:search], params[:miles]).tagged_with(params[:tag])
+
+    elsif params[:search].present?
       @users = User.near(params[:search], params[:miles])
       @jobs = Job.near(params[:search], params[:miles])
       #@jobs = Job.near search && tagged_with params tag.

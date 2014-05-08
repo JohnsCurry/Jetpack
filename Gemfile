@@ -10,6 +10,7 @@ gem 'jquery-turbolinks'
 gem 'geocoder'
 gem 'pony'
 gem 'will_paginate', '~> 3.0.5'
+gem 'whenever', :require => false
 
 
 # Use sqlite3 as the database for Active Record

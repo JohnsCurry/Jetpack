@@ -4,16 +4,13 @@ Search our jobs.
 <%= form_tag jobs_path, :method => :get do %>
  <p>Search by company name, Keywords, or title<br>
     <%= text_field_tag :tag, params[:tag] %>
-  
-</p>
-<br>
-
-  <p>Search within (miles)
-    <%= text_field_tag :miles, params[:miles]  %>
-    of (city, State)
+  </p>
+<p>Search within (miles)<br>
+    <%= text_field_tag :miles, params[:miles]  %><br>
+    of (city, State)<br>
     <%= text_field_tag :search, params[:search] %>
-   
-    <%= submit_tag "Search Near", :name => nil %>
+<br><br>   
+    <%= submit_tag "Search", :name => nil %>
   </p>
 
 <% end %>

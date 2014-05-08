@@ -1,4 +1,4 @@
-<% if current_user.status == 'career/education' %>
+<% if current_user == nil || current_user.status == 'career/education' %>
 Search our jobs. 
 
 <%= form_tag jobs_path, :method => :get do %>
@@ -23,13 +23,14 @@ Search our jobs.
   <% end %>
 </div>
 
+
   <% @jobs.each do |job| %>
     <div class='well'>
       <h2><%= link_to job.title, job_path(:id => job.id) %></h2>
       <li>Company: <%= job.company %></li>
       <li>Salary: <%= job.salary %></li>
       <li><%= job.address %></li>
-      <% if job.user_id == current_user.id %>
+      <% if current_user != nil && job.user_id == current_user.id %>
         <li><%=link_to "Edit Job", edit_job_path(job)%></li>
       <% end %>
       <p>
@@ -37,6 +38,7 @@ Search our jobs.
       </p>
     </div>
   <% end %>
+
 
 <% elsif current_user.status == 'Employer' %>
 

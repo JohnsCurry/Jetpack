@@ -79,7 +79,9 @@
           <li class='clearfix'><div class="btn-group nav_item">
           <%= link_to '#', class: 'navbar-brand', 'data-toggle' => 'dropdown' do %>
           Earn Skills <span class='caret'></span>
-        <% end %>         
+        <% end %>
+          
+
           <ul class="dropdown-menu">
             <% Category.all.each do |category| %>
               <li class='clearfix'>
@@ -88,11 +90,14 @@
               <% end %>
               <li class="divider"></li>
               <li class='clearfix'><%= link_to 'All Categories', skills_path %></li>
+              <li class="divider"></li>
+              <li class='clearfix'><%= link_to 'Career path: Software', 'http://www.blog.arcanegarden.com/arcane-garden/2014/5/8/making-a-career-change-to-software-developer', :target => '_blank' %></li>
+              <li class='clearfix'><%= link_to 'Career path: I.T', 'http://www.blog.arcanegarden.com/arcane-garden/2014/5/8/career-change-information-technology', :target => '_blank' %></li>
           </ul>
         </li>
         <% end %>
         <li class='navbar-brand'><font color="red"><strong>Beta</strong></font></li>
-        <li class='clearfix'><%= link_to 'Facebook page', 'http://www.facebook.com/jetpackedu', :target => '_blank' %></li>
+        <li class='clearfix'><%= link_to 'Give Feedback', 'http://www.blog.arcanegarden.com/arcane-garden/2014/4/30/feedback', :target => '_blank' %></li>
       
 
       </ul>

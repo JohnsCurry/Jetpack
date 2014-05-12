@@ -3,7 +3,11 @@ before_action :require_user, except: [:index, :show]
 
 
 def index
-@skills = Skill.all
+  if params[:tag].present?
+    @skills = Skill.tagged_with(params[:tag])
+  else
+    @skills = Skill.all
+  end
 end
 
 def new

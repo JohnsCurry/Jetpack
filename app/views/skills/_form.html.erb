@@ -13,6 +13,8 @@
   <br/>
   <%= f.text_area  :description, rows: 5 %>
   <br/>
+    <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+    <%= f.text_field :tag_list %>
 
   <div class='control-group'>
     <%= f.label "Categories" %>

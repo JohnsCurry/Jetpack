@@ -1,4 +1,13 @@
 <h1>Learn something and add it to your profile!</h1>
 
+<%= form_tag skills_path, :method => :get do %>
+ <p>Search for skills<br>
+    <%= text_field_tag :tag, params[:tag] %>
+  </p>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+<% end %>
+
 <%= render 'list', cat: @skills %>
 

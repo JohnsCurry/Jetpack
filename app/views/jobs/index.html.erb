@@ -8,7 +8,7 @@ Search our jobs.
 <p>Search within (miles)<br>
     <%= text_field_tag :miles, params[:miles]  %><br>
     of (city, State)<br>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search] %><%#should be city/state %>
 <br><br>   
     <%= submit_tag "Search", :name => nil %>
   </p>

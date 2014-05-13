@@ -1,15 +1,14 @@
-<ul>
-<% cat.each do |skill| %>
-<li class='well'>  <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
-  <% if logged_in? %>
-    <small><%= link_to 'Add to My Library', new_user_skill_path(:skill_id => skill.id) %></small>
-  <% end %>
-  <% if logged_in? && current_user.username == 'Curry' %>
-  <%= button_to "Delete",  skill, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{skill.title}?" %>
-  <% end %>
-  <br><strong>Description</strong><br>
-  <%=skill.description%>
-</li>
+  <% cat.each do |skill| %>
+    <div class='well'>  <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
+      <small><%= link_to 'Add to My Library', new_user_skill_path(:skill_id => skill.id) %></small>
+    <% if logged_in? && current_user.username == 'Curry' %>
+      <%= button_to "Delete",  skill, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{skill.title}?" %>
+      <%= link_to "Edit",    edit_skill_path(skill), class: "btn btn-info" %>
+    <% end %>
+<br>
+      <strong>Price: </strong><%=skill.price%>
+<br>  <strong>Description</strong><br>
+    <%= wrap(skill.description.to_s, 65) %>
+  </div>
 
-<% end %>
-</ul>
+  <% end %>

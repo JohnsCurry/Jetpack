@@ -51,21 +51,9 @@
         <input type="submit" value="Post Job, 100% Free">
     </form><br>
   <% end %>
-  <% @skills.each do |skill| %>
 
-    <div class='well'> <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
-        <small><%= link_to 'Add to My Library', new_user_skill_path(:skill_id => skill.id) %></small><br/>
-        <strong>Price: </strong><%= skill.price %>
-        <br><strong>Description</strong><br>
-        <%= wrap(skill.description.to_s, 65) %>
-
-    </div>
-  <% end %>
+  <%= render 'skills/list', cat: @skills %>
+ 
 </div>
 
 <%= paginate_stuff %>
-<%# if @jobsize >= @skillsize %>
-  <%#= will_paginate @jobs %>
-<%# else %>
-  <%#= will_paginate @skills %>
-<%# end %>

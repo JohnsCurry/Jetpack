@@ -71,9 +71,6 @@ end
 
 private
 
-#def wrap(s, width=78)
-#    s.gsub(/(.{1,#{width}})(\s+|\Z)/, "\\1<br>").html_safe
-#end
 
 def user_params
   params.require(:user).permit!

@@ -1,9 +1,14 @@
   <% cat.each do |skill| %>
-    <div class='well'>  <font size='5'><%= link_to skill.title, fix_url(skill.url), :target => '_blank' %></font>
+
+    <div class='well'>  <font size='5'><%= skill_or_banner(skill) %></font>
       <small><%= link_to 'Add to My Library', new_user_skill_path(:skill_id => skill.id) %></small>
     <% if logged_in? && current_user.username == 'Curry' %>
       <%= button_to "Delete",  skill, method: :delete, class: "btn btn-danger", confirm: "Are you sure that you wish to delete #{skill.title}?" %>
       <%= link_to "Edit",    edit_skill_path(skill), class: "btn btn-info" %>
+    <% end %>
+    <br>
+    <% if skill.banner != nil %>
+      <%=skill.banner.html_safe %>
     <% end %>
 <br>
       <strong>Price: </strong><%=skill.price%>

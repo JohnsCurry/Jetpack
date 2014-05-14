@@ -15,12 +15,12 @@ module ApplicationHelper
     end
   end
 
-  def skill_or_banner(skill)
-    if skill.banner != nil
-      skill.title
-    else
-      link_to skill.title, fix_url(skill.url), :target => '_blank'
-    end
-  end
+  #def skill_or_banner(skill)
+  #  if skill.banner != nil
+  #    skill.title
+  #  else
+  #    link_to skill.title, fix_url(skill.url), :target => '_blank'
+  #  end
+  #end
 
 end

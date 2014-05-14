@@ -2,7 +2,7 @@
 
     <div class='well'>  <font size='5'>
       
-      <% if skill.banner != nil %>
+      <% if skill.banner.size != 0 %>
       
         <%= skill.title %>
       <% else %>
@@ -18,7 +18,7 @@
       <%= link_to "Edit",    edit_skill_path(skill), class: "btn btn-info" %>
     <% end %>
     <br>
-    <% if skill.banner != nil %>
+    <% if skill.banner.size != 0 %>
       <%=skill.banner.html_safe %>
     <% end %>
 <br>

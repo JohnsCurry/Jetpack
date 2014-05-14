@@ -18,7 +18,7 @@
       <%= link_to "Edit",    edit_skill_path(skill), class: "btn btn-info" %>
     <% end %>
     <br>
-    <% if skill.banner.size != 0 %>
+    <% if skill.banner != nil %>
       <%=skill.banner.html_safe %>
     <% end %>
 <br>

@@ -11,8 +11,9 @@
   <form action="<%= login_path %>">
       <input type="submit" id='register_button' value="Log in">
   </form>
-  <form action="<%= jobs_path %>">
-      <input type="submit" id='register_button' value="Search Jobs">
+  
+  <form action="<%= new_job_path %>">
+      <input type="submit" id='register_button' value="Post Job, 100% Free">
     </form>
   <br><br>
 <% else %>
@@ -25,35 +26,45 @@
 <% if current_user == nil || current_user.status == 'career/education' %>
 <div class='pull-right'>
   <h1>Job Openings</h1>
-  <% @jobs.each do |job| %>
 
-    <div class='well'>
-      
-      <h2><%=link_to job.title, job_path(:id => job.id) %></h2>
-        <li>Company: <%= job.company %></li>
-        <li>Salary: <%= job.salary %></li>
-        <li><%= job.address %></li>
+        <%= form_tag jobs_path, :method => :get do %>
+ <p>Search by company name, Keywords, or title<br>
+    <%= text_field_tag :tag, params[:tag] %>
+  </p>
+<p>Search within (miles)<br>
+    <%= text_field_tag :miles, params[:miles]  %><br>
+    of (city, State)<br>
+    <%= text_field_tag :search, params[:search] %><%#should be city/state %>
+<br><br>   
+    <%= submit_tag "Search", :name => nil %>
+  </p>
 
-    </div>
-  <% end %>
+<% end %>
+
+
+
+
+
+  
 </div>
 
 <% end %>
 
-<h4>Post your resume, college courses, references, and more. <br>
-    We are giving you access to world class educational<br> resources so you can get ahead in life.
- </h4>
 
 <div class='pull-left'>
-  <h1>Our Skills</h1> 
-  <% if current_user == nil || current_user.status == 'Employer' %>
-    <form action="<%= new_job_path %>">
-        <input type="submit" value="Post Job, 100% Free">
-    </form><br>
-  <% end %>
+  <h1>Learn a Skill</h1>
 
-  <%= render 'skills/list', cat: @skills %>
+  <%= form_tag skills_path, :method => :get do %>
+ <p>what do you want to learn?<br>(You can also click "Earn Skills" above to see a list)<br>
+    <%= text_field_tag :tag, params[:tag] %>
+  </p>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+
+<% end %>
+
+
+
+  <%#= render 'skills/list', cat: @skills %>
  
 </div>
-
-<%= paginate_stuff %>

@@ -4,9 +4,9 @@ before_action :require_user, except: [:index, :show]
 
 def index
   if params[:tag].present?
-    @skills = Skill.tagged_with(params[:tag])
+    @skills = Skill.tagged_with(params[:tag]).paginate(:page => params[:page], :per_page => 5)
   else
-    @skills = Skill.all
+    @skills = Skill.all.paginate(:page => params[:page], :per_page => 5)
   end
 end
 
